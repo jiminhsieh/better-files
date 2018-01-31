@@ -9,7 +9,8 @@ lazy val commonSettings = Seq(
   javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
   scalacOptions --= ignoreScalacOptions(scalaVersion.value),
   libraryDependencies += Dependencies.scalatest,
-  updateImpactOpenBrowser := false
+  updateImpactOpenBrowser := false,
+  scalafmtOnCompile := true
 )
 
 /** We use https://github.com/DavidGregory084/sbt-tpolecat but some of these are broken */
