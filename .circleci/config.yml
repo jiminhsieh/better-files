@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: aa8y/sbt:ci
     working_directory: /usr/src/app
@@ -10,7 +10,7 @@ jobs:
           keys:
           - build-dependencies-{{ checksum "build.sbt" }}
           - sbt-dependencies--{{ checksum "project/build.properties" }}
-      - run: sbt compile test:compile +test
+      - run: sbt compile test:compile +test scalafmtCheck scalafmtSbtCheck
       - save_cache:
           paths:
             - ~/.ivy2/cache
@@ -42,7 +42,7 @@ workflows:
   version: 2
   build-coverage-deploy:
     jobs:
-      - build
+      - test
       - deploy:
           requires:
             - build
