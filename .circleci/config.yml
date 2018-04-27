@@ -14,7 +14,10 @@ jobs:
           - build-dependencies-{{ checksum "build.sbt" }}
           - sbt-dependencies--{{ checksum "project/build.properties" }}
       # Resource of Docker Executor - 2 vCPUs and 4GB
-      - run: sbt -mem 3072 clean coverage +test
+      - run:
+          environment:
+            SBT_OPTS: "-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=512M -Xmx2G"
+          command: sbt clean coverage +test
       - save_cache:
           paths:
             - ~/.ivy2/cache
