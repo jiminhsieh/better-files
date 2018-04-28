@@ -21,7 +21,7 @@ jobs:
           command: sbt clean coverage +test
           command: if [ $CIRCLE_BRANCH == "master"]; then \
                     sbt updateImpactSubmit coverageReport coverageAggregate codacyCoverage && \
-                    bash <(wget --quiet https://codecov.io/bash) && \
+                    /bin/bash <(wget --quiet https://codecov.io/bash) && \
                     git config --global user.email "pathikritbhowmick@msn.com" && \
                     git config --global user.name "circle-ci" && \
                     git config --global push.default simple && \
