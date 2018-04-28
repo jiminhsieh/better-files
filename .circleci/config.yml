@@ -19,9 +19,6 @@ jobs:
             SBT_OPTS: "-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=512M -Xmx2G"
             SBT_GHPAGES_COMMIT_MESSAGE: 'Publishing Scaladoc [ci skip]'
           command: sbt clean coverage +test
-          command: if [ $CIRCLE_BRANCH == "master"]; then \
-                      sbt updateImpactSubmit coverageReport coverageAggregate codacyCoverage \
-                  fi \
 
       - save_cache:
           paths:
