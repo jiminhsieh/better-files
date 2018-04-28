@@ -17,7 +17,18 @@ jobs:
       - run:
           environment:
             SBT_OPTS: "-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=512M -Xmx2G"
+            SBT_GHPAGES_COMMIT_MESSAGE: 'Publishing Scaladoc [ci skip]'
           command: sbt clean coverage +test
+          command: if [ $CIRCLE_BRANCH == "master"]; then \
+                    sbt updateImpactSubmit coverageReport coverageAggregate codacyCoverage && \
+                    bash <(wget --quiet https://codecov.io/bash) && \
+                    git config --global user.email "pathikritbhowmick@msn.com" && \
+                    git config --global user.name "circle-ci" && \
+                    git config --global push.default simple && \
+                    mkdir ~/.ssh && ssh-keyscan github.com > ~/.ssh/known_hosts && \
+                    sbt ghpagesPushSite +publish && \
+                  fi
+
       - save_cache:
           paths:
             - ~/.ivy2/cache
@@ -31,29 +42,3 @@ jobs:
           root: /usr/src
           paths:
             - app
-
-  deploy:
-    <<: *defaults
-    environment:
-      SBT_GHPAGES_COMMIT_MESSAGE: 'Publishing Scaladoc [ci skip]'
-    steps:
-      - attach_workspace:
-          at: /usr/src
-      - run: sbt updateImpactSubmit coverageReport coverageAggregate codacyCoverage
-      - run: bash <(wget --quiet https://codecov.io/bash)
-      - run: git config --global user.email "pathikritbhowmick@msn.com"
-      - run: git config --global user.name "circle-ci"
-      - run: git config --global push.default simple
-      - run: mkdir ~/.ssh && ssh-keyscan github.com > ~/.ssh/known_hosts
-      - run: sbt ghpagesPushSite +publish
-workflows:
-  version: 2
-  build-coverage-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
