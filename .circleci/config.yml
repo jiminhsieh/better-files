@@ -27,7 +27,7 @@ jobs:
                     git config --global push.default simple && \
                     mkdir ~/.ssh && ssh-keyscan github.com > ~/.ssh/known_hosts && \
                     sbt ghpagesPushSite +publish && \
-                  fi
+                  fi \
 
       - save_cache:
           paths:
