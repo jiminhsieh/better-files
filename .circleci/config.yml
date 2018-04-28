@@ -21,7 +21,7 @@ jobs:
       - run:
           environment:
             SBT_GHPAGES_COMMIT_MESSAGE: 'Publishing Scaladoc [ci skip]'
-          command: if [ $CIRCLE_BRANCH == "master"]; then \
+          command: if [ $CIRCLE_BRANCH == "master" ]; then \
                         sbt updateImpactSubmit coverageReport coverageAggregate codacyCoverage && \
                         /bin/bash <(wget --quiet https://codecov.io/bash) && \
                         git config --global user.email "pathikritbhowmick@msn.com" && \
@@ -29,7 +29,7 @@ jobs:
                         git config --global push.default simple && \
                         mkdir ~/.ssh && ssh-keyscan github.com > ~/.ssh/known_hosts && \
                         sbt ghpagesPushSite +publish && \
-                    fi \
+                    fi
       - save_cache:
           paths:
             - ~/.ivy2/cache
