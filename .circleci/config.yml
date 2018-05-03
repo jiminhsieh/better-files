@@ -17,7 +17,7 @@ jobs:
       - run:
           environment:
             SBT_OPTS: "-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=512M -Xmx2G"
-          command: sbt clean coverage +test
+          command: apt install -y git && sbt clean coverage +test
       - run:
           environment:
             SBT_GHPAGES_COMMIT_MESSAGE: 'Publishing Scaladoc [ci skip]'
