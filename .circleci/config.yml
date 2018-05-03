@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: /usr/src/app
   docker:
-    - image: jiminhsieh/scala-sbt:zulu_8-1.x-2.12.x
+    - image: jiminhsieh/scala-sbt:openj9_8-1.x-2.12.x
 
 version: 2
 jobs:
