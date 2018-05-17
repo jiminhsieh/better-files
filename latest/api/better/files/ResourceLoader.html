@@ -163,8 +163,8 @@
                         <a href="ManagedResource.html" title="">ManagedResource</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
-                        <a class="object" href="" title="A sink outputstream similar to /dev/null - just consumes everything"></a>
-                        <a href="" title="A sink outputstream similar to /dev/null - just consumes everything">NullOutputStream</a>
+                        <a class="object" href="NullOutputStream$.html" title="A sink outputstream similar to /dev/null - just consumes everything"></a>
+                        <a href="NullOutputStream$.html" title="A sink outputstream similar to /dev/null - just consumes everything">NullOutputStream</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
                         <a class="class" href="Implicits$ObjectInputStreamOps.html" title=""></a>
@@ -199,8 +199,8 @@
                         <a href="Resource$.html" title="Implementations of ResourceLoader.">Resource</a>
                       </li><li class="current-entities indented2">
                         <span class="separator"></span>
-                        <a class="trait" href="ResourceLoader.html" title="Finds and loads class resources or class loader resources."></a>
-                        <a href="ResourceLoader.html" title="Finds and loads class resources or class loader resources.">ResourceLoader</a>
+                        <a class="trait" href="" title="Finds and loads class resources or class loader resources."></a>
+                        <a href="" title="Finds and loads class resources or class loader resources.">ResourceLoader</a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="Scannable$.html" title=""></a>
                         <a class="trait" href="Scannable.html" title="Implement this trait to make thing parsable In most cases, use Scanner.Read typeclass when you simply need access to one String token Use Scannable typeclass if you need access to the full scanner e.g."></a>
@@ -270,12 +270,12 @@
             </div>
           </div>
           <div id="content">
-            <body class="object value">
+            <body class="trait type">
       <div id="definition">
-        <div class="big-circle object">o</div>
+        <div class="big-circle trait">t</div>
         <p id="owner"><a href="../index.html" class="extype" name="better">better</a>.<a href="index.html" class="extype" name="better.files">files</a></p>
-        <h1>NullOutputStream<span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html" title="Permalink">
+        <h1>ResourceLoader<span class="permalink">
+      <a href="../../better/files/ResourceLoader.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -285,21 +285,32 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">NullOutputStream</span><span class="result"> extends <span class="extype" name="java.io.OutputStream">OutputStream</span></span>
+        <span class="name">ResourceLoader</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A sink outputstream similar to /dev/null - just consumes everything
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Finds and loads <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getResource(java.lang.String)" target="_blank">class resources</a> or <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/ClassLoader.html#getResource(java.lang.String)" target="_blank">class loader resources</a>.</p><p>The default implementation of this trait is the <a href="Resource$.html" class="extype" name="better.files.Resource">Resource</a> object, which looks up resources using the <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Thread.html#currentThread()" target="_blank">current thread</a>'s <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Thread.html#getContextClassLoader()" target="_blank">context class loader</a>. The Resource object also offers several other ResourceLoader implementations, through its methods <code>at</code>, <code>from</code>, and <code>my</code>. <code>at</code> searches from a <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html" target="_blank">Class</a>, <code>from</code> searches from a <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/ClassLoader.html" target="_blank">ClassLoader</a>, and <code>my</code> searches from the class, trait, or object surrounding the call.
+</p></div><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p></p><pre><span class="cmt">// Look up the config.properties file for this class or object.</span>
+Resource.my.asStream(<span class="lit">"config.properties"</span>)
+
+<span class="cmt">// Find logging.properties (in the root package) somewhere on the classpath.</span>
+Resource.url(<span class="lit">"logging.properties"</span>)</pre></li></ol>
+            </div><dt>See also</dt><dd><span class="cmt"><p><a href="Resource$.html" class="extype" name="better.files.Resource">Resource</a></p></span><span class="cmt"><p><a href="https://stackoverflow.com/questions/676250/different-ways-of-loading-a-file-as-an-inputstream" target="_blank">Different ways of loading a file as an InputStream</a></p></span><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getResource(java.lang.String)" target="_blank">Class#getResource</a></p></span><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/ClassLoader.html#getResource(java.lang.String)" target="_blank">ClassLoader#getResource</a></p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="java.io.OutputStream">OutputStream</span>, <span class="extype" name="java.io.Flushable">Flushable</span>, <span class="extype" name="java.io.Closeable">Closeable</span>, <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="Resource$.html" class="extype" name="better.files.Resource">Resource</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -324,7 +335,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="better.files.NullOutputStream"><span>NullOutputStream</span></li><li class="in" name="java.io.OutputStream"><span>OutputStream</span></li><li class="in" name="java.io.Flushable"><span>Flushable</span></li><li class="in" name="java.io.Closeable"><span>Closeable</span></li><li class="in" name="java.lang.AutoCloseable"><span>AutoCloseable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="better.files.ResourceLoader"><span>ResourceLoader</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -346,15 +357,35 @@
 
         
 
-        
+        <div class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="better.files.ResourceLoader#url" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="url(name:String):Option[java.net.URL]"></a><a id="url(String):Option[URL]"></a>
+      <span class="permalink">
+      <a href="../../better/files/ResourceLoader.html#url(name:String):Option[java.net.URL]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">url</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="java.net.URL">URL</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Look up a resource by name, and get its <a href="https://docs.oracle.com/javase/10/docs/api/java/net/URL.html" target="_blank">URL</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Look up a resource by name, and get its <a href="https://docs.oracle.com/javase/10/docs/api/java/net/URL.html" target="_blank">URL</a>.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>Name of the resource to search for.</p></dd><dt>returns</dt><dd class="cmt"><p>URL of the requested resource. If the resource could not be found or is not accessible, returns None.</p></dd></dl><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getResource(java.lang.String)" target="_blank">Class#getResource</a></p></span><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/ClassLoader.html#getResource(java.lang.String)" target="_blank">ClassLoader#getResource</a></p></span></dd></dl></div>
+    </li></ol>
+            </div>
 
         <div class="values members">
-              <h3>Value Members</h3>
+              <h3>Concrete Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -370,7 +401,7 @@
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html###():Int" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -386,7 +417,7 @@
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -402,7 +433,7 @@
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -415,10 +446,33 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="better.files.ResourceLoader#asStream" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asStream(name:String):Option[java.io.InputStream]"></a><a id="asStream(String):Option[InputStream]"></a>
+      <span class="permalink">
+      <a href="../../better/files/ResourceLoader.html#asStream(name:String):Option[java.io.InputStream]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asStream</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="java.io.InputStream">InputStream</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Look up a resource by name, and open an <a href="https://docs.oracle.com/javase/10/docs/api/java/io/InputStream.html" target="_blank">InputStream</a> for reading it.</p><div class="fullcomment"><div class="comment cmt"><p>Look up a resource by name, and open an <a href="https://docs.oracle.com/javase/10/docs/api/java/io/InputStream.html" target="_blank">InputStream</a> for reading it.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>Name of the resource to search for.</p></dd><dt>returns</dt><dd class="cmt"><p>InputStream for reading the found resource, if a resource was found.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="scala.this.throws.&lt;init&gt;$default$1[java.io.IOException]">...</span>
+    </span>)</span>
+              
+        </dd><dt>See also</dt><dd><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getResourceAsStream(java.lang.String)" target="_blank">Class#getResourceAsStream</a></p></span><span class="cmt"><p><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/ClassLoader.html#getResourceAsStream(java.lang.String)" target="_blank">ClassLoader#getResourceAsStream</a></p></span></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#clone():Object" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -439,32 +493,10 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="java.io.OutputStream#close" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="close():Unit"></a>
-      <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#close():Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">close</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>OutputStream → Closeable → AutoCloseable</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -480,7 +512,7 @@
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -496,7 +528,7 @@
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#finalize():Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -515,32 +547,10 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="java.io.OutputStream#flush" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flush():Unit"></a>
-      <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#flush():Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">flush</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>OutputStream → Flushable</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#getClass():Class[_]" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -559,7 +569,7 @@
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#hashCode():Int" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -578,7 +588,7 @@
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -594,7 +604,7 @@
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -610,7 +620,7 @@
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#notify():Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -629,7 +639,7 @@
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#notifyAll():Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -648,7 +658,7 @@
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -664,7 +674,7 @@
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#toString():String" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -680,7 +690,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#wait():Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -702,7 +712,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -724,7 +734,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../better/files/ResourceLoader.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -745,66 +755,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="better.files.NullOutputStream#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="write(b:Int):Unit"></a><a id="write(Int):Unit"></a>
-      <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#write(b:Int):Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">write</span><span class="params">(<span name="b">b: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="better.files.NullOutputStream">NullOutputStream</a> → OutputStream</dd></dl></div>
-    </li><li name="java.io.OutputStream#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="write(x$1:Array[Byte],x$2:Int,x$3:Int):Unit"></a><a id="write(Array[Byte],Int,Int):Unit"></a>
-      <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#write(x$1:Array[Byte],x$2:Int,x$3:Int):Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">write</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>, <span name="arg2">arg2: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>OutputStream</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="java.io.OutputStream#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="write(x$1:Array[Byte]):Unit"></a><a id="write(Array[Byte]):Unit"></a>
-      <span class="permalink">
-      <a href="../../better/files/NullOutputStream$.html#write(x$1:Array[Byte]):Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">write</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>OutputStream</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.io.IOException]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li>
               </ol>
             </div>
@@ -815,15 +765,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="java.io.OutputStream">
-              <h3>Inherited from <span class="extype" name="java.io.OutputStream">OutputStream</span></h3>
-            </div><div class="parent" name="java.io.Flushable">
-              <h3>Inherited from <span class="extype" name="java.io.Flushable">Flushable</span></h3>
-            </div><div class="parent" name="java.io.Closeable">
-              <h3>Inherited from <span class="extype" name="java.io.Closeable">Closeable</span></h3>
-            </div><div class="parent" name="java.lang.AutoCloseable">
-              <h3>Inherited from <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
